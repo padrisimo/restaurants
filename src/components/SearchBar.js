@@ -4,19 +4,30 @@ import { AntDesign } from "@expo/vector-icons";
 
 const SearchBar = () => {
   return (
-    <View style={styles.background}>
-      <AntDesign name="search1" sixe={30} />
-      <TextInput />
+    <View style={styles.container}>
+      <AntDesign name="search1"style={styles.icon}/>
+      <TextInput placeholder="search" style={styles.textInput} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     backgroundColor: "white",
     height: 50,
-    marginHorizontal: 15,
-    borderRadius: 25
+    margin: 15,
+    borderRadius: 25,
+    flexDirection: "row",
+    paddingHorizontal: 15
+  }, 
+  icon: {
+    fontSize: 30,
+    alignSelf: "center",
+    marginRight: 15
+  }, 
+  textInput: {
+    flex: 1,
+    fontSize: 18 // default is 14
   }
 });
 
