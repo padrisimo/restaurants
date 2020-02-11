@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const SearchBar = () => {
   return (
     <View style={styles.background}>
-      <Text>yea</Text>
+      <AntDesign name="search1" sixe={30} />
+      <TextInput />
     </View>
   );
 };
