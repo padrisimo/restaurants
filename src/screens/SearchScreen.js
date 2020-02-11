@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 
 import SearchBar from "../components/SearchBar";
 
 const SearchScreen = () => {
+  const [term, setTerm] = useState("");
   return (
     <View>
-      <SearchBar />
-      <Text>yea</Text>
+      <SearchBar term={term} onTermChange={newTerm => setTerm(newTerm)} />
+  <Text>yea pedo {term} </Text>
     </View>
   );
 };
