@@ -7,8 +7,12 @@ const SearchScreen = () => {
   const [term, setTerm] = useState("");
   return (
     <View>
-      <SearchBar term={term} onTermChange={newTerm => setTerm(newTerm)} />
-  <Text>yea pedo {term} </Text>
+      <SearchBar
+        onTermSubmit={() => console.log('submit query')}
+        term={term}
+        onTermChange={newTerm => setTerm(newTerm)}
+      />
+      <Text>yea pedo {term} </Text>
     </View>
   );
 };
