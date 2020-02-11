@@ -1,12 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-const SearchScreen = ({
-    params
-}) => (
+import SearchBar from "../components/SearchBar";
+
+const SearchScreen = () => {
+  return (
     <View>
-        <Text>SearchScreen</Text>
+      <SearchBar />
+      <Text>yea</Text>
     </View>
-);
+  );
+};
 
 export default SearchScreen;
