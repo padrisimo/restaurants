@@ -1,16 +1,20 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const ResultsDetail = ({ result }) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: result.image_url }} style={styles.image} />
-      <Text styles={styles.name}>{result.name}</Text>
-      <Text style={styles.rating}>{result.rating} Stars, {result.review_count} Reviews</Text>
-    </View>
+    <TouchableOpacity onPress={() => navigate("ResultsShow", { id: result.id})}>
+      <View style={styles.container}>
+        <Image source={{ uri: result.image_url }} style={styles.image} />
+        <Text styles={styles.name}>{result.name}</Text>
+        <Text style={styles.rating}>
+          {result.rating} Stars, {result.review_count} Reviews
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   rating: {
-    color: 'gray'
+    color: "gray"
   }
 });
 
