@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList, Image } from "react-native";
 import yelp from "../api/yelp";
 
-const ResultsShowScreen = ({ navigation, route }) => {
+const ResultsShowScreen = ({ route }) => {
   const [result, setResult] = useState(null);
   const id = route.params.id;
 
@@ -17,9 +17,18 @@ const ResultsShowScreen = ({ navigation, route }) => {
     getResult(id);
   }, []);
 
+  if (!result) {
+    return null;
+  }
+
   return (
     <View>
-      <Text>yea</Text>
+      <Text>{result.name}</Text>
+      <FlatList
+        data={result.photos}
+        keyExtractor={photo => photo}
+        renderItem={({ item }) => <Image style={{ width: 300, height: 200 }} source={{ uri: item }} />}
+      />
     </View>
   );
 };
