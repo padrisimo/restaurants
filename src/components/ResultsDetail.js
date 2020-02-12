@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const ResultsDetail = ({ result }) => {
+const ResultsDetail = ({ result, lastOfUs }) => {
   const { navigate } = useNavigation();
 
   return (
     <TouchableOpacity onPress={() => navigate("ResultsShow", { id: result.id})}>
-      <View style={styles.container}>
+      <View style={[styles.container, lastOfUs && {marginRight: 15}]}>
         <Image source={{ uri: result.image_url }} style={styles.image} />
         <Text styles={styles.name}>{result.name}</Text>
         <Text style={styles.rating}>

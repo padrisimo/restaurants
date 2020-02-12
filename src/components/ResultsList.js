@@ -3,6 +3,11 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import ResultsDetail from "./ResultsDetail";
 
 const ResultsList = ({ title, results }) => {
+
+  if(!results.length) {
+    return null;
+  }
+
   return (
     <View>
       <Text style={styles.title}>
@@ -13,7 +18,12 @@ const ResultsList = ({ title, results }) => {
         data={results}
         showsHorizontalScrollIndicator={false}
         keyExtractor={result => result.id}
-        renderItem={({ item }) => <ResultsDetail result={item} />}
+        renderItem={({ item, index }) => (
+          <ResultsDetail
+            result={item}
+            lastOfUs={index === results.length - 1 ? true : false}
+          />
+        )}
       />
     </View>
   );
